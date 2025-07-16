@@ -37,6 +37,7 @@ The dataset includes 18 CSV files each representing different health metrics. Th
 | **Comprehensive** | Limited by number of users (30) and time period; not fully representative of broader population. |
 | **Current**       | May not reflect current Fitbit models or modern user behavior patterns.                          |
 | **Cited**         | Public domain dataset, with clear origin from Kaggle and Möbius.                                 |
+
 While the **FitBit Fitness Tracker Data** offers a reliable snapshot of user activity, its limitations are notable. The data is outdated (collected in 2016) and spans only one month, reducing its relevance for identifying current trends. It provides a small sample size of 30 users which, although statistically usable under the Central Limit Theorem, is not broadly representative. Additionally, the absence of demographic data - such as gender, location, age, and employment status - restricts the ability to tailor recommendations for specific target audiences or marketing channels. Since Bellabeat’s products are primarily designed for women and individuals who menstruate, having access to demographic details would have significantly strengthened the insights and recommendations generated from the analysis.
 
 ## 5. Process Phase
@@ -128,6 +129,7 @@ ORDER BY total_id DESC
 | 19       | 1               |
 | 18       | 1               |
 | 4        | 1               |
+
 The results show that most active users decided to wear their devices for the entire month, while the least active user only used it for 4 days. I've decided to sort the users into 3 different categories: Active, Moderate, and Light users.
 
 ```sql
@@ -154,6 +156,7 @@ ORDER BY number_of_types DESC
 | Active User  | 29              |
 | Moderate User| 3               |
 | Light User   | 1               |
+
 This shows us 29 users labelled as Active Users (used the device for more than 25 days), 3 users labelled as Moderate Users (used the device between 15 to 25 days), and 1 user labelled as Light User (used the device for less than 15 days).
 ### 6.3 Activity by Day of the Week
 The next step was to analyze how user activity levels varied across different days of the week. This can potentially uncover behavioral patters among users, which could be helpful in creating recommendations for Bellabeat in later stages. 
@@ -223,6 +226,7 @@ ORDER BY NumberOfUsers ASC
 | Inactive          | 8             |
 | Low Active        | 9             |
 | Moderately Active | 9             |
+
 Considering that most health recommendations suggest a daily step count of at least 7,500 to be considered active, we can group _Inactive_ and _Low Active_ users as less active, while the remaining users fall into the active range. That way, 17 users are little to non-active and 16 are considered somewhat or very active - almost an even split. This insight suggests that nearly half of Bellabeat users may benefit from additional motivation or features that promote daily movement.
 ### 6.5 Average Steps by Hour
 Next I wanted to make use of the hourly_steps table to gain information about patterns in movement throughout the day. Understanding when users are most and least active can shed light on daily habits and help identify optimal times for engagement.
@@ -262,6 +266,7 @@ ORDER BY TimeFormatted;
 | 21:00:00 | 308           |
 | 22:00:00 | 237           |
 | 23:00:00 | 122           |
+
 The data shows very low activity during the early morning hours, gradually increasing after 5 AM. Step counts peak between noon and 7 PM, with the highest average around 6 PM (599 steps), before declining again into the late evening. These results align with typical daily routines, reflecting periods of rest overnight and higher movement during daytime hours.
 
 ## 7. Share Phase
